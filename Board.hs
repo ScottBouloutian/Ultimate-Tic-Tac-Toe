@@ -1,9 +1,23 @@
--- Board.hs
--- Scott Bouloutian
+{-
+	Board.hs
+	Scott Bouloutian
 
--- A board is represented by a list of lists
--- Each index in the outer list is a section of the big board
--- Each index in the inner list is a section of the small board
+	A board is represented by a list of lists
+	Each index in the outer list is a section of the big board
+	Each index in the inner list is a section of the small board
+
+	_ _ _ | _ _ _ | _ _ _
+	_ _ _ | _ _ _ | _ _ _
+	_ _ _ | _ _ _ | _ _ _
+	_____________________
+	_ _ _ | _ _ _ | _ _ _
+	_ _ _ | _ _ _ | _ _ _
+	_ _ _ | _ _ _ | _ _ _
+	_____________________
+	_ _ _ | _ _ _ | _ _ _
+	_ _ _ | _ _ _ | _ _ _
+	_ _ _ | _ _ _ | _ _ _
+-}
 
 module Board
 where
@@ -15,12 +29,12 @@ where
  emptyBoard = Board {state = take 81 (repeat '_'), lastMove = (-1,-1)}
 
  -- Returns a row (0 to 8) from the board
- displayRow :: Board -> Int -> IO()
- displayRow board row = putStrLn (intersperse ' ' [fst x | x <- (zipWithIndex (state board)), rowFromIndex (snd x) == row])
+ getRowString :: Board -> Int -> [Char]
+ getRowString board row = intersperse ' ' (insertListAtPositions "|" [3,6] [fst x | x <- (zipWithIndex (state board)), rowFromIndex (snd x) == row])
 
  -- Displays each row of the board
- displayBoard :: Board ->IO[()]
- displayBoard board = mapM (displayRow board) [0..8]
+ getBoardString :: Board -> [Char]
+ getBoardString board = intercalate "\n" (insertListAtPositions ["_____________________"] [3,6] (map (getRowString board) [0..8]))
 
  -- Pairs each element in a list with its corresponding index
  zipWithIndex :: [a] -> [(a,Int)]
@@ -53,3 +67,12 @@ where
 
  getSector :: Int -> Board -> [Char]
  getSector n board = [fst x | x <- (zipWithIndex (state board)), bigIndices (snd x) == n]
+
+ insertListAtPositions :: [a] -> [Int] -> [a] -> [a]
+ insertListAtPositions e positions list = if length positions == 0
+                                             then list
+                                             else insertListAtPositions e (map ((+) 1) (tail positions)) newList
+                                                  where newList = insertList e (head positions) list
+
+ insertList :: [a] -> Int -> [a] -> [a]
+ insertList e n list = left ++ e ++ right where (left, right) = splitAt n list
