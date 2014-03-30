@@ -6,6 +6,7 @@
 	Each index in the outer list is a section of the big board
 	Each index in the inner list is a section of the small board
 
+	A board takes the following form:
 	_ _ _ | _ _ _ | _ _ _
 	_ _ _ | _ _ _ | _ _ _
 	_ _ _ | _ _ _ | _ _ _
@@ -19,7 +20,7 @@
 	_ _ _ | _ _ _ | _ _ _
 -}
 
-module Board
+module Board(getIndex,Board(Board,lastMove),state,getSector,zipWithIndex,emptyBoard,getBoardString)
 where
  import Data.List
  data Board = Board {state :: [Char], lastMove :: (Int,Int)} deriving Show
@@ -60,19 +61,23 @@ where
  colFromIndex :: Int -> Int
  colFromIndex i = mod i 9
 
+ -- Given the big and small indices of a move, returns the index in the large board
  getIndex :: (Int,Int) -> Int
  getIndex (big,small) = row * 9 + col
                         where row = (quot big 3) * 3 + (quot small 3)
                               col = (mod big 3) * 3 + (mod small 3)
 
+ -- Gets a specific sector from the board
  getSector :: Int -> Board -> [Char]
  getSector n board = [fst x | x <- (zipWithIndex (state board)), bigIndices (snd x) == n]
 
+ -- Inserts a list 'e' into the list 'list' at every position in the given list 'positions' and returns the result
  insertListAtPositions :: [a] -> [Int] -> [a] -> [a]
- insertListAtPositions e positions list = if length positions == 0
+ insertListAtPositions e positions list = if null positions
                                              then list
                                              else insertListAtPositions e (map ((+) 1) (tail positions)) newList
                                                   where newList = insertList e (head positions) list
 
+ -- Inserts a list 'e' into the list 'list' at position 'n' and returns the result
  insertList :: [a] -> Int -> [a] -> [a]
  insertList e n list = left ++ e ++ right where (left, right) = splitAt n list
