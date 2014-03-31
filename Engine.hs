@@ -5,7 +5,7 @@
 	This module defines the game logic behind Ultimate Tic-Tac-Toe
 -}
 
-module Engine(validMove,performMove,winner)
+module Engine(validMove,performMove,winner,rowFromSector,colFromSector,diagFromSector)
 where
  import Board
  import Data.List

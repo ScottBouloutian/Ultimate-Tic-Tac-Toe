@@ -1,0 +1,288 @@
+Script started on Mon 31 Mar 2014 01:30:44 PM PDT
+]0;scott@ubuntu: ~/Desktop/Ultimate TTTscott@ubuntu:~/Desktop/Ultimate TTT$ ls
+Board.hs  demo.script  Engine.hs  GameAI.hs  Game.hs
+]0;scott@ubuntu: ~/Desktop/Ultimate TTTscott@ubuntu:~/Desktop/Ultimate TTT$ ghc *hs
+[1 of 4] Compiling Board            ( Board.hs, Board.o )
+[2 of 4] Compiling Engine           ( Engine.hs, Engine.o )
+[3 of 4] Compiling GameAI           ( GameAI.hs, GameAI.o )
+[4 of 4] Compiling Main             ( Game.hs, Game.o )
+Linking Game ...
+]0;scott@ubuntu: ~/Desktop/Ultimate TTTscott@ubuntu:~/Desktop/Ultimate TTT$ ls
+Board.hi  Board.o      Engine.hi  Engine.o  GameAI.hi  GameAI.o  Game.hs
+Board.hs  demo.script  Engine.hs  [0m[01;32mGame[0m      GameAI.hs  Game.hi   Game.o
+]0;scott@ubuntu: ~/Desktop/Ultimate TTTscott@ubuntu:~/Desktop/Ultimate TTT$ ./Gma[K[Kame
+Welcome to Ultimate Tic-Tac-Toe!
+Enter your move Player 1:
+invalid  
+input
+You Didn't Enter Integers, Try again:
+-1
+-2
+Invalid Move, Try again:
+9
+9
+Invalid Move, Try again:
+0
+1
+_ X _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 2:
+1
+0
+_ X _ | O _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 1:
+0
+2
+_ X X | O _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 2:
+2
+0
+_ X X | O _ _ | O _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 1:
+0
+0
+X X X | O _ _ | O _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 2:
+0
+3
+Invalid Move, Try again:
+3
+4
+X X X | O _ _ | O _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ O _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 1:
+4
+0
+X X X | O _ _ | O _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | X _ _ | _ _ _
+_ O _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 2:
+1
+4
+X X X | O _ _ | O _ _
+_ _ _ | _ O _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | X _ _ | _ _ _
+_ O _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 1:
+4
+1
+X X X | O _ _ | O _ _
+_ _ _ | _ O _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | X X _ | _ _ _
+_ O _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 2:
+1
+8
+X X X | O _ _ | O _ _
+_ _ _ | _ O _ | _ _ _
+_ _ _ | _ _ O | _ _ _
+_____________________
+_ _ _ | X X _ | _ _ _
+_ O _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 1:
+7
+4
+Invalid Move, Try again:
+8
+4
+X X X | O _ _ | O _ _
+_ _ _ | _ O _ | _ _ _
+_ _ _ | _ _ O | _ _ _
+_____________________
+_ _ _ | X X _ | _ _ _
+_ O _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ X _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 2:
+4
+4
+X X X | O _ _ | O _ _
+_ _ _ | _ O _ | _ _ _
+_ _ _ | _ _ O | _ _ _
+_____________________
+_ _ _ | X X _ | _ _ _
+_ O _ | _ O _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ X _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 1:
+4
+2
+X X X | O _ _ | O _ _
+_ _ _ | _ O _ | _ _ _
+_ _ _ | _ _ O | _ _ _
+_____________________
+_ _ _ | X X X | _ _ _
+_ O _ | _ O _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ X _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 2:
+2
+8
+X X X | O _ _ | O _ _
+_ _ _ | _ O _ | _ _ _
+_ _ _ | _ _ O | _ _ O
+_____________________
+_ _ _ | X X X | _ _ _
+_ O _ | _ O _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | _ _ _
+_ _ _ | _ _ _ | _ X _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 1:
+8
+0
+X X X | O _ _ | O _ _
+_ _ _ | _ O _ | _ _ _
+_ _ _ | _ _ O | _ _ O
+_____________________
+_ _ _ | X X X | _ _ _
+_ O _ | _ O _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | X _ _
+_ _ _ | _ _ _ | _ X _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 2:
+2
+4
+X X X | O _ _ | O _ _
+_ _ _ | _ O _ | _ O _
+_ _ _ | _ _ O | _ _ O
+_____________________
+_ _ _ | X X X | _ _ _
+_ O _ | _ O _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | X _ _
+_ _ _ | _ _ _ | _ X _
+_ _ _ | _ _ _ | _ _ _
+
+Enter your move Player 1:
+8
+8
+X X X | O _ _ | O _ _
+_ _ _ | _ O _ | _ O _
+_ _ _ | _ _ O | _ _ O
+_____________________
+_ _ _ | X X X | _ _ _
+_ O _ | _ O _ | _ _ _
+_ _ _ | _ _ _ | _ _ _
+_____________________
+_ _ _ | _ _ _ | X _ _
+_ _ _ | _ _ _ | _ X _
+_ _ _ | _ _ _ | _ _ X
+Player One Wins
+]0;scott@ubuntu: ~/Desktop/Ultimate TTTscott@ubuntu:~/Desktop/Ultimate TTT$ exit
+exit
+
+Script done on Mon 31 Mar 2014 01:34:19 PM PDT

@@ -1,5 +1,19 @@
+{-
+    GameAI.hs
+    Scott Bouloutian
+
+    This module serves as the starting point for implementing the AI minimax algorithm in Haskell.
+    Due to my lack of expertise in Haskell, I am unclear as to whether or not this is the most efficient
+    implementation of minimax in Haskell. It doesn't seem to have to capability to look very far ahead in
+    the game tree, although this could be due to the branching factor of Ultimate Tic-Tac-Toe. The heuristic
+    function is implemented but incomplete.
+
+-}
+
 module GameAI
 where
+ import Board
+ import Engine
 
  possibleMoves :: Board -> [(Int,Int)]
  possibleMoves board = [(m1,m2) | m1 <- [0..8], m2 <- [0..8], validMove (m1,m2) board == True]

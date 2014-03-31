@@ -31,15 +31,15 @@ where
 
  -- Prompts the user for a move until a valid one is entered
  promptMove :: Board -> IO (Int,Int)
- promptMove  board = do putStrLn "Enter your move:"
-                        bigField <- getLine
+ promptMove  board = do bigField <- getLine
                         smallField <- getLine
-                        putStrLn ""
                         case parseArgs [bigField,smallField] of
-                        	Left message->promptMove board
-                        	Right move-> if validMove (0,0) board
-                                         then return (0,0)
-                                         else promptMove board
+                             Left message -> do putStrLn "You Didn't Enter Integers, Try again:"
+                                                promptMove board
+                             Right move -> if validMove move board
+                                           then return move
+                                           else do putStrLn "Invalid Move, Try again:"
+                                                   promptMove board
 
  -- Parses a list of arguments into two integers
  parseArgs :: [String] -> Either String (Int,Int)
@@ -55,23 +55,30 @@ where
 
  -- Performs player one's turn by prompting for a move and executing it
  playerOneTurn :: Board -> IO()
- playerOneTurn board = do move <- promptMove board
+ playerOneTurn board = do putStrLn "Enter your move Player 1:"
+                          move <- promptMove board
                           let newBoard = performMove move 'X' board
                           displayBoard newBoard
-                          putStrLn ""
                           if (winner newBoard == '_')
                           then playerTwoTurn newBoard
-                          else putStrLn "Game Over"
+                          else printWinner newBoard
 
  -- Performs player two's turn by prompting for a move and executing it
  playerTwoTurn :: Board -> IO()
- playerTwoTurn board = do move <- promptMove board
+ playerTwoTurn board = do putStrLn "Enter your move Player 2:"
+                          move <- promptMove board
                           let newBoard = performMove move 'O' board
                           displayBoard newBoard
-                          putStrLn ""
                           if (winner newBoard == '_')
                           then playerOneTurn newBoard
-                          else putStrLn "Game Over"
+                          else printWinner newBoard
+
+ -- Displays a winning message if necessary
+ printWinner :: Board -> IO()
+ printWinner board | (winner board == 'X') = putStrLn "Player One Wins"
+                   | (winner board == 'O') = putStrLn "Player Two Wins"
+                   | (winner board == 'T') = putStrLn "It's a tie!"
+                   | otherwise = putStrLn "Error"
 
  -- Aesthetically outputs a representation of the board to the console
  displayBoard :: Board -> IO()
